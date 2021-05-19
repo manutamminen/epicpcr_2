@@ -12,10 +12,10 @@ Primers used:
 |  Cell Contents | More Stuff   | And Again    |
 | You Can Also   | Put Pipes In | Like this \| |
 
-|N701|N702|N703|
-
-|S507|Sample 5, 16S|Sample 6, 16S|Sample 7, 16S|
-|S508|Sample 5, 18S|Sample 6, 18S|Sample 7, 18S|
+| | N701 | N702 | N703 |
+| :---: | :---: | :---: | :---: |
+| S507 |Sample 5, 16S |Sample 6, 16S |Sample 7, 16S |
+| S508 |Sample 5, 18S |Sample 6, 18S |Sample 7, 18S |
 
 
  Prepare following PCR mix (4× per sample + 1 extra volume):
