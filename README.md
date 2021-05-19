@@ -1,4 +1,4 @@
-# epicPCR experiment December 18 2020 
+# epicPCR experiment February 24 2021
 
 This sequencing run was primarily about testing the effect of freezing on wastewater samples.
 
