@@ -7,11 +7,6 @@ sample 7 10e4 cells/ml + waste water
 
 Primers used:
 
-| Column 1       | Column 2     | Column 3     |
-| :------------- | :----------: | -----------: |
-|  Cell Contents | More Stuff   | And Again    |
-| You Can Also   | Put Pipes In | Like this \| |
-
 | | N701 | N702 | N703 |
 | :---: | :---: | :---: | :---: |
 | S507 |Sample 5, 16S |Sample 6, 16S |Sample 7, 16S |
@@ -20,15 +15,14 @@ Primers used:
 
  Prepare following PCR mix (4× per sample + 1 extra volume):
 
-Reagent|1X|25X
-H2O|12,4 µl|310 µl
-5x HF buffer|4 µl|100 µl
-dNTP mix (10 mM each)|0,4 µl|10 µl
-Phusion DNA polymerase (2 U/µl)|0,2 µl|5 µl
-i5 primer (10 µM)|1 µl|
-i7 primer (10 µM)|1 µl|
-		
-Reaction|19 µl|95 µl
+| Reagent | 1X | 25X |
+| H2O | 12,4 µl | 310 µl
+| 5x HF buffer | 4 µl | 100 µl |
+| dNTP mix (10 mM each) | 0,4 µl | 10 µl |
+| Phusion DNA polymerase (2 U/µl) | 0,2 µl | 5 µl |
+| i5 primer (10 µM) | 1 µl | 
+| i7 primer (10 µM) | 1 µl | 
+Reaction | 19 µl | 95 µl |
 
 Pipette 17 µl mastermix, 1 µl of appropriate primers each, and 1 µl template (purified nested PCR product) to 4 PCR tubes per sample
 
