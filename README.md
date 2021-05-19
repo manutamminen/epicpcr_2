@@ -13,7 +13,7 @@ The following samples were included:
 
 Raw data available at https://zenodo.org/record/4771697
 
-Summary of the results available at 
+Summary of the results available at https://github.com/manutamminen/epicpcr_2/blob/main/docs/index.md
 
 # Building
 
