@@ -1,4 +1,6 @@
-16S and 18S barcoding experiments (see 25.1.2021 - 26.1.2021) were further prepared for sequencing using indexing primers.
+## Indexing
+
+16S and 18S barcoding experiments were further prepared for sequencing using indexing primers.
 
 Bead Formation
 Sample 5 (no waste water in sample 5) should contain rhodomonas about 10e4 cells/ml
@@ -29,13 +31,14 @@ Pipette 17 µl mastermix, 1 µl of appropriate primers each, and 1 µl template 
 
 b) Run the following cycling program:
 
-Step	Temperature (°C)	Time	Number of cycles
-Beginning temperature	98	30 s	1
-Denaturation	98	10 s	12
-Annealing	55	20 s	
-Extension	72	20 s	
-Final extension	72	5 min	1
-Storing temperature	4	Inf	1
+| Step | Temperature (°C) | Time | Number of cycles |
+| :---: | :---: | :---: | :---: |
+| Beginning temperature | 98 | 30 s | 1 |
+| Denaturation | 98 | 10 s | 12 |
+| Annealing | 55 | 20 s | 
+| Extension | 72 | 20 s | 
+| Final extension | 72 | 5 min | 1
+| Storing temperature | 4 | Inf | 1
 
 Pool replicate samples, purify with Monarch kit.
 
