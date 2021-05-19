@@ -7,7 +7,8 @@ sample 7 10e4 cells/ml + waste water
 
 Primers used:
 
-| |N701|N702|N703|
+|N701|N702|N703|
+
 |S507|Sample 5, 16S|Sample 6, 16S|Sample 7, 16S|
 |S508|Sample 5, 18S|Sample 6, 18S|Sample 7, 18S|
 
