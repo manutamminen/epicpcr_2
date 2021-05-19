@@ -7,6 +7,11 @@ sample 7 10e4 cells/ml + waste water
 
 Primers used:
 
+| Column 1       | Column 2     | Column 3     |
+| :------------- | :----------: | -----------: |
+|  Cell Contents | More Stuff   | And Again    |
+| You Can Also   | Put Pipes In | Like this \| |
+
 |N701|N702|N703|
 
 |S507|Sample 5, 16S|Sample 6, 16S|Sample 7, 16S|
