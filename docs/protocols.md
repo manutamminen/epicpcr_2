@@ -16,6 +16,7 @@ Primers used:
  Prepare following PCR mix (4× per sample + 1 extra volume):
 
 | Reagent | 1X | 25X |
+| :---: | :---: | :---: |
 | H2O | 12,4 µl | 310 µl
 | 5x HF buffer | 4 µl | 100 µl |
 | dNTP mix (10 mM each) | 0,4 µl | 10 µl |
