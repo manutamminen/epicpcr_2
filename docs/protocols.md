@@ -47,21 +47,21 @@ DNA concentration was measured by fluorometry (Qubit) and quality evaluated by e
 <td valign="top"><img src="../lab_figures/gel1.png" width=400></td>
 
 
-           1 kB MW marker
-	1. 16S sample 5 (rhodo only)
-	2. 16S sample 6 (ww only)
-	3. 16S sample 7 (rhodo + ww)
-	4. 18S sample 5
-	5. 18S sample 6
-	6. 18S sample 7
+1. 1 kB MW marker
+2. 16S sample 5 (rhodo only)
+3. 16S sample 6 (ww only)
+4. 16S sample 7 (rhodo + ww)
+5. 18S sample 5
+6. 18S sample 6
+7. 18S sample 7
 
 Bands look quite good. Something seems to be amplified in the 100 - 200 bp range, but it mainly shows in the lane 5.
 
 The concentration in the same order as above, in ng/µl:
 
-	1. 3,8
-	2. 38,0
-	3. 14,4
-	4. 15,6
-	5. 22,2
-22,4
+2. 3,8
+3. 38,0
+4. 14,4
+5. 15,6
+6. 22,2
+7. 22,4
