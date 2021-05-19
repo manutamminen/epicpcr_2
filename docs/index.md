@@ -76,7 +76,7 @@ The abundance columns are:
 -   Rhodomonas + waste water (frozen, 100 µm filtered)
 
 <td valign="top">
-<img src="../figures/mineral_tanglegram.png" >
+<img src="../figures/frozen_tanglegram.png" >
 </td>
 
 ## Tanglegram of the HFE7500 reactions
@@ -88,5 +88,5 @@ The abundance columns are:
 -   Waste water (not frozen, 10 - 100 µm fraction)
 
 <td valign="top">
-<img src="../figures/fluor_tanglegram.png" >
+<img src="../figures/unfrozen_tanglegram.png" >
 </td>
