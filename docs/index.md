@@ -63,8 +63,13 @@ The abundance columns are:
 -   Waste water (frozen, 100 µm filtered)
 -   Rhodomonas + waste water (frozen, 100 µm filtered)
 
+Non-normalised connections
 <td valign="top">
 <img src="../figures/frozen_tanglegram.png" >
+</td>
+Normalised connections
+<td valign="top">
+<img src="../figures/frozen_tanglegram_normalised.png" >
 </td>
 
 ## Tanglegram of the unfrozen reactions
@@ -75,11 +80,16 @@ The abundance columns are:
 -   Waste water (not frozen, 30 - 100 µm fraction)
 -   Waste water (not frozen, 10 - 100 µm fraction)
 
+Non-normalised connections
 <td valign="top">
 <img src="../figures/unfrozen_tanglegram.png" >
 </td>
+Normalised connections
+<td valign="top">
+<img src="../figures/unfrozen_tanglegram_normalised.png" >
+</td>
 
-## Tanglegram of all reaction
+## Tanglegram of all reactions
 
 The abundance columns are:
 
@@ -90,6 +100,11 @@ The abundance columns are:
 -   Waste water (not frozen, 30 - 100 µm fraction)
 -   Waste water (not frozen, 10 - 100 µm fraction)
 
+Non-normalised connections
 <td valign="top">
 <img src="../figures/tanglegram.png" >
+</td>
+Normalised connections
+<td valign="top">
+<img src="../figures/tanglegram_normalised.png" >
 </td>
