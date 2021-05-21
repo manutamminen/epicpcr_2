@@ -330,6 +330,10 @@ rule connection_distribution:
 # Draw abundance comparisons
 #########
 
+colors = ['Green', 'Orange', 'Red']
+frozen_samples = ['Rhodosample', 'RhodoFrozenWWsample', 'FrozenWWsample']
+unfrozen_samples = ['UnfrozenWWsample', 'UnfrozenWWsample10fraction', 'UnfrozenWWsample30fraction']
+
 rule draw_abundance_comparisons:
   input:
     bact_tre="data/final/16S.tre",
@@ -337,8 +341,17 @@ rule draw_abundance_comparisons:
     bact_abunds="tables/16S_abunds.txt",
     euk_abunds="tables/18S_abunds.txt"
   output:
-    mineral="figures/bact_abunds.png",
-    fluor="figures/euk_abunds.png"
+    "figures/bact_abunds.png",
+    "figures/euk_abunds.png"
+  params:
+    {'Type' : 'bacteria',
+     'Samples' : frozen_samples + unfrozen_samples,
+     'Colors' : colors + colors,
+     'N_Labels' : 20},
+    {'Type' : 'eukaryota',
+     'Samples' : frozen_samples + unfrozen_samples,
+     'Colors' : colors + colors,
+     'N_Labels' : 20}
   script:
     "src/visualization/draw_abund_comparisons.R"
 
@@ -355,8 +368,37 @@ rule draw_tanglegrams:
     bact_abunds="tables/16S_abunds.txt",
     euk_abunds="tables/18S_abunds.txt"
   output:
-    frozen="figures/frozen_tanglegram.png",
-    unfrozen="figures/unfrozen_tanglegram.png"
+    "figures/frozen_tanglegram.png",
+    "figures/frozen_tanglegram_normalised.png",
+    "figures/unfrozen_tanglegram.png",
+    "figures/unfrozen_tanglegram_normalised.png",
+    "figures/tanglegram.png",
+    "figures/tanglegram_normalised.png"
+  params:
+    {'Samples' : frozen_samples,
+     'Colors' : colors,
+     'Normalize_connections' : False,
+     'N_Labels' : 20},
+    {'Samples' : frozen_samples,
+     'Colors' : colors,
+     'Normalize_connections' : True,
+     'N_Labels' : 20},
+    {'Samples' : unfrozen_samples,
+     'Colors' : colors,
+     'Normalize_connections' : False,
+     'N_Labels' : 20},
+    {'Samples' : unfrozen_samples,
+     'Colors' : colors,
+     'Normalize_connections' : True,
+     'N_Labels' : 20},
+    {'Samples' : frozen_samples + unfrozen_samples,
+     'Colors' : colors + colors,
+     'Normalize_connections' : False,
+     'N_Labels' : 20},
+    {'Samples' : frozen_samples + unfrozen_samples,
+     'Colors' : colors + colors,
+     'Normalize_connections' : True,
+     'N_Labels' : 20}
   script:
     "src/visualization/draw_tanglegrams.R"
 
@@ -367,13 +409,14 @@ rule draw_tanglegrams:
 
 rule report:
   input:
-    bc_distr="figures/bc_distribution.png",
-    bc_tax_distr="figures/bc_tax_distribution.png",
-    conn_distr="figures/connection_distribution.png",
-    bact_abunds="figures/bact_abunds.png",
-    euk_abunds="figures/euk_abunds.png",
-    frozen="figures/frozen_tanglegram.png",
-    unfrozen="figures/unfrozen_tanglegram.png"
+    "figures/bc_distribution.png",
+    "figures/bc_tax_distribution.png",
+    "figures/connection_distribution.png",
+    "figures/bact_abunds.png",
+    "figures/euk_abunds.png",
+    "figures/frozen_tanglegram.png",
+    "figures/unfrozen_tanglegram.png",
+    "figures/tanglegram.png"
   output:
     "docs/index.md",
   script:

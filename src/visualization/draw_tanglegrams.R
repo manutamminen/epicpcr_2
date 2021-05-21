@@ -73,7 +73,9 @@ connections <-
            Bacterial_taxonomy = str_replace_all(Bacterial_taxonomy, "\\)", ""),
            Bacterial_taxonomy = str_replace_all(Bacterial_taxonomy, " ", "_")) %>%
     inner_join(bact_tip_coords, by = c("Bacterial_taxonomy" = "Taxonomy")) %>%
-    inner_join(euk_tip_coords, by = c("Eukaryotic_taxonomy" = "Taxonomy"))
+    inner_join(euk_tip_coords, by = c("Eukaryotic_taxonomy" = "Taxonomy")) %>%
+    group_by(Sample) %>%
+    mutate(Perc = Count/sum(Count))
 
 
 bact_tip_percs <-
@@ -86,6 +88,12 @@ bact_tip_percs <-
   inner_join(bact_tip_coords, by="Taxonomy") %>%
   group_by(Sample) %>%
   mutate(Perc = Count / sum(Count))
+
+bact_tip_labels <-
+  tip_coord(bact_tre) %>%
+  separate(Tip, c("Taxonomy", "Abundance"), sep="____") %>%
+  mutate(Abundance = as.numeric(Abundance)) %>%
+  arrange(desc(Abundance))
 
 
 euk_tip_percs <-
@@ -100,94 +108,97 @@ euk_tip_percs <-
   mutate(Perc = Count / sum(Count))
 
 
-frozen <-
-  c("Rhodosample", "RhodoFrozenWWsample", "FrozenWWsample")
+euk_tip_labels <-
+  tip_coord(euk_tre) %>%
+  separate(Tip, c("Taxonomy", "Abundance"), sep="____") %>%
+  mutate(Abundance = as.numeric(Abundance)) %>%
+  arrange(desc(Abundance))
 
-unfrozen <-
-  c("UnfrozenWWsample", "UnfrozenWWsample10fraction", "UnfrozenWWsample30fraction")
 
-plot_bact_hist <- function(sample) {
+plot_bact_hist <- function(sample, color) {
   plot(NULL, xlim = c(0, 1e4), ylim = c(0, 1), type='n', axes=FALSE, ann=FALSE)
   bact_tip_percs %>%
     filter(Sample == sample) %>%
-    with(walk2(Ix, Count, ~ lines(c(0, .y), c(.x, .x))))
+    with(walk2(Ix, Count, ~ lines(c(0, .y), c(.x, .x), col=color)))
 }
 
-plot_euk_hist <- function(sample) {
+
+plot_euk_hist <- function(sample, color) {
   plot(NULL, xlim = c(-1e4, 0), ylim = c(0, 1), type='n', axes=FALSE, ann=FALSE)
   euk_tip_percs %>%
     filter(Sample == sample) %>%
-    with(walk2(Ix, Count, ~ lines(c(1, (1 - .y)), c(.x, .x))))
+    with(walk2(Ix, Count, ~ lines(c(1, (1 - .y)), c(.x, .x), col=color)))
 }
 
-png(snakemake@output[[1]], units="in", width=5, height=5, res=300)
 
-lmat <- matrix(1:9, ncol = 9)
-layout(lmat, widths = c(2, rep(1, 3), 3, rep(1, 3), 2), heights = 1)
-par(mar=c(1, 1, 1, 1))
-
-plot(ladderize(bact_tre), cex = 0.4,
-     align.tip.label = TRUE, show.tip.label = FALSE)
-
-walk(frozen, plot_bact_hist)
-
-plot(NULL, xlim = c(0, 1), ylim = c(0, 1), type='n', axes=FALSE, ann=FALSE)
-
-connections %>%
-  filter(Sample == "Rhodosample") %>%
-  with(pwalk(list(Ix.x, Ix.y),
-             ~ lines(c(0, 1), c(.x, .y), col = alpha("green", 0.05))))
-
-connections %>%
-  filter(Sample == "RhodoFrozenWWsample") %>%
-  with(pwalk(list(Ix.x, Ix.y),
-             ~ lines(c(0, 1), c(.x, .y), col = alpha("red", 0.05))))
-
-connections %>%
-  filter(Sample == "FrozenWWsample") %>%
-  with(pwalk(list(Ix.x, Ix.y),
-             ~ lines(c(0, 1), c(.x, .y), col = alpha("black", 0.05))))
-
-walk(rev(frozen), plot_euk_hist)
-
-plot(ladderize(euk_tre), align.tip.label = TRUE,
-     direction = "leftwards", show.tip.label = FALSE)
-
-dev.off()
+plot_connections <- function(sample, color) {
+  connections %>%
+    filter(Sample == sample) %>%
+    with(pwalk(list(Ix.x, Ix.y),
+               ~ lines(c(0, 1), c(.x, .y), col = alpha(color, 0.05))))
+}
 
 
-png(snakemake@output[[2]], units="in", width=5, height=5, res=300)
+plot_tanglegram <- function(samples,
+                            color_list,
+                            normalize_connections=TRUE,
+                            n_labels) {
+  sample_table <-
+    data.frame(Sample = samples,
+               Color = color_list)
 
-lmat <- matrix(1:9, ncol = 9)
-layout(lmat, widths = c(2, rep(1, 3), 3, rep(1, 3), 2), heights = 1)
-par(mar=c(1, 1, 1, 1))
+  if (!normalize_connections)
+    connections$Perc <- 0.05
 
-plot(ladderize(bact_tre), cex = 0.4,
-     align.tip.label = TRUE, show.tip.label = FALSE)
+  widths <- c(5, 2, rep(1, length(samples)), 3, rep(1, length(samples)), 2, 5)
+  lmat <- matrix(1:length(widths), ncol = length(widths))
+  layout(lmat, widths = widths, heights = 1)
+  par(mar=c(1, 1, 1, 1))
 
-walk(unfrozen, plot_bact_hist)
+  plot(NULL, xlim = c(0, 5e3),
+       ylim = c(0, 1), type='n', axes=FALSE, ann=FALSE)
 
-plot(NULL, xlim = c(0, 1), ylim = c(0, 1), type='n', axes=FALSE, ann=FALSE)
+  bact_tip_labels %>%
+    head(n_labels) %>%
+    with(walk2(Ix, Taxonomy, ~ text(5e3, .x, .y, cex=0.4, adj=1)))
 
-connections %>%
-  filter(Sample == "UnfrozenWWsample") %>%
-  with(pwalk(list(Ix.x, Ix.y),
-             ~ lines(c(0, 1), c(.x, .y), col = alpha("green", 0.05))))
+  plot(ladderize(bact_tre), cex = 0.4,
+       align.tip.label = TRUE, show.tip.label = FALSE)
 
-connections %>%
-  filter(Sample == "UnfrozenWWsample10fraction") %>%
-  with(pwalk(list(Ix.x, Ix.y),
-             ~ lines(c(0, 1), c(.x, .y), col = alpha("red", 0.05))))
+  sample_table %>%
+    with(walk2(Sample, Color, ~plot_bact_hist(.x, .y)))
 
-connections %>%
-  filter(Sample == "UnfrozenWWsample30fraction") %>%
-  with(pwalk(list(Ix.x, Ix.y),
-             ~ lines(c(0, 1), c(.x, .y), col = alpha("black", 0.05))))
+  plot(NULL, xlim = c(0, 1), ylim = c(0, 1), type='n', axes=FALSE, ann=FALSE)
 
-walk(rev(unfrozen), plot_euk_hist)
+  connections %>%
+    filter(Sample %in% samples) %>%
+    with(pwalk(list(Ix.x, Ix.y, Sample, Perc),
+               function(Ixx, Ixy, Sample, Perc)
+                 lines(c(0, 1), c(Ixx, Ixy),
+                       col = alpha(sample_table[sample_table == Sample, 2], Perc))))
 
-plot(ladderize(euk_tre), align.tip.label = TRUE,
-     direction = "leftwards", show.tip.label = FALSE)
+  sample_table %>%
+    map_dfr(rev) %>%
+    with(walk2(Sample, Color, ~plot_euk_hist(.x, .y)))
 
-dev.off()
+  plot(ladderize(euk_tre), align.tip.label = TRUE,
+       direction = "leftwards", show.tip.label = FALSE)
+
+  plot(NULL, xlim = c(0, 5e3),
+       ylim = c(0, 1), type='n', axes=FALSE, ann=FALSE)
+
+  euk_tip_labels %>%
+    head(n_labels) %>%
+    with(walk2(Ix, Taxonomy, ~ text(0, .x, .y, cex=0.4, adj=0)))
+}
+
+
+for (fname_ix in seq_along(snakemake@output)) {
+  png(snakemake@output[[fname_ix]], units="in", width=10, height=5, res=300)
+  plot_tanglegram(snakemake@params[[fname_ix]]$Samples,
+                  snakemake@params[[fname_ix]]$Colors,
+                  snakemake@params[[fname_ix]]$Normalize_connections,
+                  snakemake@params[[fname_ix]]$N_Labels)
+  dev.off()
+}
 

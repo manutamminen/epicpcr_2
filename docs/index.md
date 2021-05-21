@@ -37,7 +37,7 @@ Barcode taxonomy distribution
 <img src="../figures/connection_distribution.png" width=500>
 </td>
 
-## Bacterial abundance profile
+## Abundance profiles
 
 The abundance columns are:
 
@@ -51,23 +51,11 @@ The abundance columns are:
 <td valign="top">
 <img src="../figures/bact_abunds.png" >
 </td>
-
-## Eukaryotic abundance profile
-
-The abundance columns are:
-
--   Rhodomonas only
--   Waste water (frozen, 100 µm filtered)
--   Rhodomonas + waste water (frozen, 100 µm filtered)
--   Waste water (not frozen, 100 µm filtered)
--   Waste water (not frozen, 30 - 100 µm fraction)
--   Waste water (not frozen, 10 - 100 µm fraction)
-
 <td valign="top">
 <img src="../figures/euk_abunds.png" >
 </td>
 
-## Tanglegram of the mineral oil reactions
+## Tanglegram of the frozen reactions
 
 The abundance columns are:
 
@@ -79,7 +67,7 @@ The abundance columns are:
 <img src="../figures/frozen_tanglegram.png" >
 </td>
 
-## Tanglegram of the HFE7500 reactions
+## Tanglegram of the unfrozen reactions
 
 The abundance columns are:
 
@@ -89,4 +77,19 @@ The abundance columns are:
 
 <td valign="top">
 <img src="../figures/unfrozen_tanglegram.png" >
+</td>
+
+## Tanglegram of all reaction
+
+The abundance columns are:
+
+-   Rhodomonas only
+-   Waste water (frozen, 100 µm filtered)
+-   Rhodomonas + waste water (frozen, 100 µm filtered)
+-   Waste water (not frozen, 100 µm filtered)
+-   Waste water (not frozen, 30 - 100 µm fraction)
+-   Waste water (not frozen, 10 - 100 µm fraction)
+
+<td valign="top">
+<img src="../figures/tanglegram.png" >
 </td>
