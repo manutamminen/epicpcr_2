@@ -72,17 +72,18 @@ e) Separate the phases (top: mineral oil, middle: emulsion, bottom: surplus fluo
 
 f) Add 50 µl of PFO, mix and spin. The upper aqueous phase is collected / bottom phase discarded
 
-g) Cleanup with Monarch kit
+g) Cleanup with Monarch® PCR & DNA Cleanup Kit (5 μg).
 
 ## 16S and 18S blocking
 
 Prepare the PCR master mix (done separately to the variant samples, hence the volumes may vary):
 | Reagent | 1X | 5X |
 | :---: | :---: | :---: |
-| 5xGC buffer | 10 µl | 50 µl
+| PCR H2O | 23.5 µl | 117.5 µl |
+| 5xGC buffer | 10 µl | 50 µl |
 | dNTP mix (10 mM each) | 1 µl | 5 µl |
-| 32 µM BlockF-16S BlockR-16S primers (2, each) | 5 µl | 25 µl |
-| 32 µM BlockF-18S and BlockR-18S primers (2, each)  | 5 µl | 25 µl |
+| 32 µM BlockF-16S and BlockR-16S primers | 5 µl | 25 µl |
+| 32 µM BlockF-18S and BlockR-18S primers | 5 µl | 25 µl |
 | Phusion DNA polymerase (2 U/µl) | 0.5 µl | 2.5 µl |
 
 Combine 45 µl mastermix and 5 µl template (purified fusion PCR product)
@@ -97,17 +98,17 @@ Running PCR:
 | Final extension | 72 | 5 min | 1
 | Storing temperature | 4 | Inf | 1
 
-Monarch cleanup. To make the template DNA concentration as high as possible with good yield, elution volume was 10 µl.
+Cleanup with Monarch® PCR & DNA Cleanup Kit (5 μg). To make the template DNA concentration as high as possible with good yield, elution volume was 10 µl.
 
 ## Nested PCR 
 
-Prepare the 2 PCR master mixes (with either 16S and 18S nested primers), (done separately to the variant samples, hence the volumes may vary):
+Prepare 2 PCR master mixes (with either 16S and 18S nested primers), (done separately to the variant samples, hence the volumes may vary):
 | Reagent | 1X | 5X |
 | :---: | :---: | :---: |
-| PCR H2O | 14.75 µl | 74 µl
+| PCR H2O | 14.75 µl | 74 µl |
 | 5xGC buffer | 5 µl | 25 µl |
 | dNTP mix (10 mM each) | 0.5 µl | 2.5 µl |
-| Primer mix * either 16S or 18S | 2.5 µl | 212.5 µl |
+| Primer mix * either 16S or 18S | 2.5 µl | 12.5 µl |
 | Phusion DNA polymerase (2 U/µl) | 0.5 µl | 2.5 µl |
 
 (*) Primer mixes: 
@@ -126,7 +127,7 @@ Running PCR:
 | Final extension | 72 | 5 min | 1
 | Storing temperature | 4 | Inf | 1
 
-Replicate samples pooled and Monarch kit cleanup performed
+Replicate samples pooled and cleanup with Monarch® PCR & DNA Cleanup Kit (5 μg).
 
 ## Indexing
 
@@ -169,7 +170,7 @@ b) Run the following cycling program:
 | Final extension | 72 | 5 min | 1
 | Storing temperature | 4 | Inf | 1
 
-Pool replicate samples, purify with Monarch kit.
+Pool replicate samples, purify with Monarch® PCR & DNA Cleanup Kit (5 μg).
 
 DNA concentration was measured by fluorometry (Qubit) and quality evaluated by electrophoresis.
 
