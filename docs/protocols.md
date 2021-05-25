@@ -17,12 +17,13 @@ Waste water variant samples (to test if the amount of bacteria could be lower), 
 - Variant 30: contains fraction obtained from the top of 30 µm mesh (120 µl)
 - Variant 10 contains fraction obtained from the top of 10 µm mesh (120 µl)
 
-b) Shake & mix STT (Span/Tween/Triton) emulsion oil thoroughly before use!  
-Add 600 µl STT emulsion oil. (storage temp: RT) 
-Vortex at max speed (3 000 rpm) for 30 s.
+b) Shake & mix STT emulsion oil thoroughly before use!
+- *) 2,25 ml Span 80 + 200 µl Tween 80 + 25 µl Triton X-100, Mineral oil to 50 ml.
+- Add 600 µl STT emulsion oil. (storage temp: RT) 
+- Vortex at max speed (3 000 rpm) for 30 s.
 
 c) Add 25 µl TEMED.  (storage temp: RT) 
-Vortex at max speed (3 000 rpm) for 30 s.
+- Vortex at max speed (3 000 rpm) for 30 s.
 
 d) Allow tube to sit on the benchtop for polymerization to occur for 1h 30 min
 
@@ -112,8 +113,8 @@ Prepare 2 PCR master mixes (with either 16S and 18S nested primers), (done separ
 | Phusion DNA polymerase (2 U/µl) | 0.5 µl | 2.5 µl |
 
 (*) Primer mixes: 
-- 16S: 16S nested primers (3 primers), i5 forward, BlockF, BlockR; (3µM each) 
-- 18S: 18S nested primers (3 primers), i5 forward, BlockF, BlockR; (3µM each)
+- 16S: 16S nested primers (4 primers), i5 forward, BlockF, BlockR; (3µM each) 
+- 18S: 18S nested primers (4 primers), i5 forward, BlockF, BlockR; (3µM each)
 
 Combine 23 µl mastermix + 2 µl of sample (from blocking PCR) 
 
